@@ -23,9 +23,15 @@ function App() {
           e.preventDefault();
           addItem();
         }}>
-          <h3>İtem Ekle: <input type="text" placeholder="A New Item"/></h3>
-          <button>Oluştur</button>
+          <h3>İtem Ekle: <input type="text" placeholder="A New Item" value={newItem} onChange={e=>setNewItem(e.target.value)}
+          /></h3>
+          <button onClick={(e)=> addItem()}>Oluştur</button>
         </form>
+        <ul>
+        {items.map(item => {
+        return <li key={item.id}> {item.value}</li>
+        })}
+        </ul>
       </div>
     );
   }
